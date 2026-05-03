@@ -1,0 +1,38 @@
+<article class="experience-card-item relative pl-8 py-2 transition-all duration-500 group">
+  <div
+    class="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-white/60 via-neutral-300/30 to-transparent group-hover:from-white group-hover:via-neutral-300/60 transition-all duration-500"
+  ></div>
+  <div
+    class="absolute left-[-4.5px] top-8 w-[10px] h-[10px] rounded-full bg-white/80 ring-2 ring-white/20 group-hover:bg-neutral-200 group-hover:shadow-[0_0_16px_var(--tw-shadow-color)] group-hover:shadow-white/30 transition-all duration-500"
+  ></div>
+
+  <div class="space-y-4">
+    <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight">
+      {{ company() }}
+    </h3>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <span
+        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20"
+      >
+        {{ role() }}
+      </span>
+
+      <span class="text-sm text-white/40 font-mono tracking-wide">
+        {{ periodStart() }} &mdash; {{ periodEnd() }}
+      </span>
+    </div>
+
+    <ul class="space-y-2.5 pt-1">
+      @for (item of description(); track $index) {
+      <li class="flex items-start gap-3 text-sm sm:text-base text-white/60 leading-relaxed">
+        <span
+          class="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300/50 shrink-0 group-hover:bg-neutral-300 transition-colors duration-500"
+          [style.transition-delay.ms]="$index * 50"
+        ></span>
+        <span>{{ item }}</span>
+      </li>
+      }
+    </ul>
+  </div>
+</article>

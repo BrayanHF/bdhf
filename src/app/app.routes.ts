@@ -4,7 +4,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    loadComponent: () => import('./features/features')
+    loadComponent: () => import('./portfolio/portfolio')
   }
 
 ];

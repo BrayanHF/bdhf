@@ -1,15 +1,16 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, effect, ElementRef, HostListener, inject, OnDestroy, signal } from '@angular/core';
 import {
   LucideAngularModule,
   Menu,
-  MoveUp,
   FolderGit2,
   BriefcaseBusiness,
   Code,
   User,
   Logs,
+  MessageCircleMore,
 } from 'lucide-angular';
 import gsap from 'gsap';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'nav-button',
@@ -17,19 +18,24 @@ import gsap from 'gsap';
   styleUrl: 'nav-button.scss',
   templateUrl: './nav-button.html',
 })
-export class NavButton {
-
-  private isOpen = signal(false);
+export class NavButton implements OnDestroy {
+  private scrollService = inject(ScrollService);
+  private elRef = inject(ElementRef);
+  protected isOpen = signal(false);
 
   readonly currentIcon = signal(Menu);
+  readonly activeSection = this.scrollService.activeSection;
 
   readonly menuItems = [
-    { label: '', path: 'hero', img: MoveUp },
-    { label: 'Historia laboral', path: 'work-history', img: BriefcaseBusiness },
+    { label: 'Experiencia laboral', path: 'experience', img: BriefcaseBusiness },
     { label: 'Proyectos', path: 'projects', img: FolderGit2 },
-    { label: 'Stack', path: 'tech', img: Code },
+    { label: 'Stack', path: 'stack', img: Code },
     { label: 'Sobre mi', path: 'about', img: User },
+    { label: 'Contacto', path: 'contact', img: MessageCircleMore },
   ];
+
+  private scrollStartY = 0;
+  private readonly scrollThreshold = 80;
 
   constructor() {
     effect(() => {
@@ -39,6 +45,30 @@ export class NavButton {
         this.currentIcon.set(open ? Logs : Menu);
       }, 450);
     });
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (this.isOpen() && !this.elRef.nativeElement.contains(event.target)) {
+      this.toggleMenu();
+    }
+  }
+
+  private readonly onScroll = (): void => {
+    if (Math.abs(window.scrollY - this.scrollStartY) > this.scrollThreshold) {
+      this.toggleMenu();
+    }
+  };
+
+  navigateTo(path: string): void {
+    this.scrollService.scrollTo(`#${path}`);
+    if (this.isOpen()) {
+      this.toggleMenu();
+    }
   }
 
   private animateChangeIcon(isOpen: boolean, useArcAnimation: boolean) {
@@ -90,7 +120,7 @@ export class NavButton {
       const cy = btnRect.top + btnRect.height / 2;
 
       gsap.to(items, {
-        opacity: 1,
+        autoAlpha: 1,
         pointerEvents: 'auto',
         duration: 0.3,
         stagger: 0.15,
@@ -133,12 +163,19 @@ export class NavButton {
   }
 
   public toggleMenu() {
-    this.isOpen.set(!this.isOpen());
+    const wasOpen = this.isOpen();
+    this.isOpen.set(!wasOpen);
 
     const useArcAnimation = window.innerHeight < 480;
 
     this.animateChangeIcon(this.isOpen(), useArcAnimation);
     this.animateOpenAndClose(this.isOpen(), useArcAnimation);
-  }
 
+    if (!wasOpen) {
+      this.scrollStartY = window.scrollY;
+      window.addEventListener('scroll', this.onScroll);
+    } else {
+      window.removeEventListener('scroll', this.onScroll);
+    }
+  }
 }

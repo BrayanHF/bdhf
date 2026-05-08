@@ -1,13 +1,12 @@
 import { Component, input } from '@angular/core';
+import { ProjectEntry } from '../../interfaces/project.interface';
+import { TechCard } from '../tech-card/tech-card';
 
 @Component({
   selector: 'project-card',
-  imports: [],
+  imports: [TechCard],
   templateUrl: './project-card.html',
 })
 export class ProjectCard {
-  readonly title = input.required<string>();
-  readonly category = input.required<string>();
-  readonly description = input.required<string>();
-  readonly techs = input.required<string[]>();
+  readonly project = input.required<ProjectEntry>();
 }

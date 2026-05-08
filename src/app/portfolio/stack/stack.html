@@ -1,0 +1,60 @@
+<section class="relative w-full overflow-hidden py-24 sm:py-32">
+
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <floating-shape [animDelay]="0" [blur]="4" [opacity]="0.4" [size]="16" color="white" left="10%" shape="circle"
+                    top="12%" />
+    <floating-shape [animDelay]="0.5" [opacity]="0.3" [rotation]="45" [size]="20" color="#d4d4d4" right="12%"
+                    shape="rounded"
+                    top="28%" />
+    <floating-shape [animDelay]="1.0" [opacity]="0.5" [size]="12" color="#737373" left="6%" shape="circle" top="50%" />
+    <floating-shape [animDelay]="1.5" [blur]="4" [opacity]="0.25" [size]="24" color="white" right="8%" shape="circle"
+                    top="68%" />
+    <floating-shape [animDelay]="2.0" [opacity]="0.3" [rotation]="-12" [size]="16" color="#d4d4d4" left="18%"
+                    shape="square"
+                    top="85%" />
+    <floating-shape [animDelay]="2.5" [opacity]="0.4" [rotation]="12" [size]="12" color="#737373" right="30%"
+                    shape="square"
+                    top="15%" />
+  </div>
+
+  <gradient-orb [opacity]="0.03" [size]="400" color="white" left="25%" top="33.33%" />
+  <gradient-orb [opacity]="0.03" [size]="350" bottom="25%" color="#d4d4d4" right="25%" />
+  <gradient-orb [opacity]="0.02" [size]="300" color="#737373" right="33.33%" top="66.66%" />
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+
+    <div class="stack-section-header mb-20 text-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
+          Stack Tecnológico
+        </span>
+      </h2>
+    </div>
+
+    <div class="space-y-20 sm:space-y-24">
+      @for (category of categories; track category.title) {
+        <div class="stack-category">
+
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            <h3 class="text-lg sm:text-xl font-semibold text-white/70 tracking-wider uppercase font-mono">
+              {{ category.title }}
+            </h3>
+            <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          </div>
+
+
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-5">
+            @for (tech of category.techs; track $index) {
+              <div class="w-[calc(50%-1rem)] sm:w-40 md:w-48">
+                <tech-card [tech]="tech" [showDescription]="true" />
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+
+</section>

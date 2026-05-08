@@ -1,0 +1,171 @@
+<section class="relative w-full overflow-hidden py-24 sm:py-32 flex items-center">
+
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <floating-shape top="12%" right="10%" [size]="16" shape="circle" color="white" [opacity]="0.4" [blur]="4"
+                    [animDelay]="0" />
+    <floating-shape top="35%" left="12%" [size]="20" shape="rounded" color="#d4d4d4" [opacity]="0.3" [rotation]="45"
+                    [animDelay]="0.5" />
+    <floating-shape top="60%" right="8%" [size]="12" shape="circle" color="#737373" [opacity]="0.5" [animDelay]="1.0" />
+    <floating-shape top="78%" left="18%" [size]="24" shape="circle" color="white" [opacity]="0.25" [blur]="4"
+                    [animDelay]="1.5" />
+    <floating-shape top="88%" right="22%" [size]="16" shape="square" color="#d4d4d4" [opacity]="0.3" [rotation]="-12"
+                    [animDelay]="2.0" />
+  </div>
+
+  <gradient-orb top="20%" right="25%" [size]="400" color="white" [opacity]="0.03" />
+  <gradient-orb bottom="20%" left="20%" [size]="350" color="#d4d4d4" [opacity]="0.03" />
+  <gradient-orb top="60%" right="30%" [size]="300" color="#737373" [opacity]="0.02" />
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
+          Contacto
+        </span>
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-white/35 max-w-xl mx-auto leading-relaxed">
+        Si quieres colaborar en un proyecto, tienes alguna pregunta o simplemente quieres saludar, no dudes en
+        escribirme.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-6">Medios de contacto</h3>
+          <div class="space-y-4">
+            <a href="mailto:brayanhernandezfurnieles@gmail.com"
+               class="group flex items-center gap-3 text-white/60 hover:text-white transition-colors">
+              <span
+                class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
+                <lucide-icon [img]="MailIcon" />
+              </span>
+              <span class="text-sm sm:text-base">brayanhernandezfurnieles&#64;gmail.com</span>
+            </a>
+
+            <a href="https://wa.me/573001719317" target="_blank" rel="noopener noreferrer"
+               class="group flex items-center gap-3 text-white/60 hover:text-white transition-colors">
+              <span
+                class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
+                <lucide-icon [img]="PhoneIcon" />
+              </span>
+              <div class="text-sm sm:text-base">
+                <span>+57 3001719317</span>
+                <span class="block text-xs text-white/40">Disponible por WhatsApp</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-white/40 font-mono mb-4">Redes</h4>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/BrayanHF" target="_blank" rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+
+              <div class="h-8 w-8">
+                <img src="assets/icons/github.svg" alt="GitHub"/>
+              </div>
+              <span class="text-sm text-white/70 group-hover:text-white transition-colors">GitHub</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/brayanhf" target="_blank" rel="noopener noreferrer"
+               class="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+              <div class="h-8 w-8">
+                <img src="assets/icons/linkedin.svg" alt="LinkedIn"/>
+              </div>
+              <span class="text-sm text-white/70 group-hover:text-white transition-colors">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xl sm:text-2xl font-bold text-white">Envíame un mensaje</h3>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="hidden" aria-hidden="true">
+            <input type="text" formControlName="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="grid sm:grid-cols-2 sm:gap-4">
+            <div class="flex flex-col">
+              <div class="h-8 flex items-end pb-1">
+                @if (getError(nameControl)) {
+                  <div
+                    class="px-3 py-1 rounded-md bg-red-500/20 border border-red-500/40 text-red-400 text-[10px] leading-tight w-full animate-in fade-in duration-300">
+                    {{ getError(nameControl) }}
+                  </div>
+                }
+              </div>
+              <input
+                type="text"
+                formControlName="name"
+                placeholder="Nombre"
+                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="h-8 flex items-end pb-1">
+                @if (getError(emailControl)) {
+                  <div
+                    class="px-3 py-1 rounded-md bg-red-500/20 border border-red-500/40 text-red-400 text-[10px] leading-tight w-full animate-in fade-in duration-300">
+                    {{ getError(emailControl) }}
+                  </div>
+                }
+              </div>
+              <input
+                type="email"
+                formControlName="email"
+                placeholder="Correo electrónico"
+                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="h-8 flex items-end pb-1">
+              @if (getError(messageControl)) {
+                <div
+                  class="px-3 py-1 rounded-md bg-red-500/20 border border-red-500/40 text-red-400 text-[10px] leading-tight w-full animate-in fade-in duration-300">
+                  {{ getError(messageControl) }}
+                </div>
+              }
+            </div>
+            <textarea
+              formControlName="message"
+              rows="4"
+              placeholder="Escribe tu mensaje..."
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="group my-8 relative inline-flex items-center gap-2 px-8 py-3 rounded-full font-medium text-sm tracking-wider uppercase overflow-hidden transition-all duration-300"
+          >
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-white to-neutral-300 opacity-90 group-hover:opacity-100 transition-opacity"></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-neutral-300 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span class="relative z-10 text-neutral-950 font-semibold">Enviar mensaje</span>
+          </button>
+
+          <div class="h-4">
+            @if (showSentMessage()) {
+              <div class="px-4 py-3 rounded-lg bg-green-500/20 border border-green-500/50 text-green-400 text-sm">
+                ¡Mensaje enviado correctamente!
+              </div>
+            }
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,13 +1,17 @@
 <nav class="nav">
-
-  <div>
-
+  <div class="menu-container">
     @for (item of menuItems; track $index) {
-      <div class="menu-item bg-gradient-to-br from-white/5 to-neutral-500/5">
-        <lucide-icon [img]="item.img"/>
-        @if (item.label != '') {
-          <label class="text-neutral-50"> {{ item.label }}</label>
-        }
+
+      <div
+        class="menu-item"
+        [class.active]="activeSection() === item.path"
+        (click)="navigateTo(item.path)"
+      >
+          <lucide-icon [img]="item.img" />
+          @if (item.label != '') {
+            <label class="text-neutral-50">{{ item.label }}</label>
+          }
+
       </div>
     }
 
@@ -15,9 +19,7 @@
       class="menu-button z-10 w-12 h-12 rounded-full bg-gradient-to-br from-white/20 via-neutral-300/20 to-neutral-500/20 flex items-center justify-center"
       (click)="toggleMenu()"
     >
-      <lucide-icon [img]="currentIcon()" class="menu-icon"/>
+      <lucide-icon [img]="currentIcon()" class="menu-icon" />
     </button>
-
   </div>
-
 </nav>

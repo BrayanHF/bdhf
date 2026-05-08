@@ -1,0 +1,40 @@
+@if (showDescription()) {
+  <div class="group w-full aspect-[4/3] perspective-[1000px] cursor-pointer select-none">
+    <div #cardInner class="relative w-full h-full transition-transform duration-500"
+         style="transform-style: preserve-3d;">
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4 py-6 rounded-xl bg-white/[0.02] border border-white/[0.04] backface-hidden"
+        style="backface-visibility: hidden;"
+      >
+        <div class="w-16 h-16 transition-colors">
+          <tech-icon [tech]="tech()" />
+        </div>
+
+        <span class="text-sm font-medium text-white/60 text-center leading-tight">
+          {{ tech().name }}
+        </span>
+      </div>
+
+      <div
+        class="absolute inset-0 flex items-center justify-center px-4 py-6 rounded-xl bg-neutral-950/95 border border-white/10 backface-hidden"
+        style="backface-visibility: hidden; transform: rotateY(180deg);"
+      >
+        <span class="text-xs text-white/80 text-center leading-relaxed">
+          {{ tech().description }}
+        </span>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div
+    class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-neutral-400/70 bg-white/5 border border-white/10"
+  >
+    <div class="w-5 h-5 shrink-0">
+      <tech-icon [tech]="tech()" />
+    </div>
+
+    <span class="text-xs font-mono leading-none">
+      {{ tech().name }}
+    </span>
+  </div>
+}

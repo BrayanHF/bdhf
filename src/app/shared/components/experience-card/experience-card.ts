@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { ExperienceEntry } from '../../interfaces/experience.interface';
 
 @Component({
   selector: 'experience-card',
@@ -6,9 +7,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './experience-card.html',
 })
 export class ExperienceCard {
-  readonly company = input.required<string>();
-  readonly role = input.required<string>();
-  readonly periodStart = input.required<string>();
-  readonly periodEnd = input.required<string>();
-  readonly description = input.required<string[]>();
+  readonly experience = input.required<ExperienceEntry>();
 }

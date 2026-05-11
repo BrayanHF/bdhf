@@ -55,45 +55,48 @@ export const JAVA: Tech = {
   name: 'Java',
   localImage: '/assets/icons/java.svg',
   description:
-    'Lenguaje orientado a objetos para aplicaciones robustas. Spring Boot para backend de nivel enterprise.',
+    'Java es mi lenguaje favorito. Aunque empecé con Python, me enamoré del tipado fuerte y la programación orientada a objetos',
 };
 
 export const SPRING: Tech = {
-  name: 'Spring',
+  name: 'Spring Boot',
   localImage: '/assets/icons/spring.svg',
   description:
-    'Framework robusto para construir APIs RESTful con inversión de control y inyección de dependencias.',
+    'Aprendí JSP antes de saber qué era un framework y entiendo por qué Spring Boot es el rey',
 };
 
 export const KOTLIN: Tech = {
   name: 'Kotlin',
   localImage: '/assets/icons/kotlin.svg',
   description:
-    'Lenguaje moderno para Android y backend. Conciso, seguro y con interoperabilidad total con Java.',
+    'Un día necesitaba desarrollar en Android y me topé con esta maravilla. Kotlin es Java, pero moderno',
 };
 
 export const ANDROID: Tech = {
   name: 'Android',
   localImage: '/assets/icons/android.svg',
-  description: 'Desarrollo de apps móviles nativas con Kotlin. Material Design y Jetpack Compose.',
+  description:
+    'Ampliando mis horizontes llegué a Android, solo diré que pensé que Andy iba a ser más difícil',
 };
 
 export const JUNIT: Tech = {
   name: 'JUnit',
   localImage: '/assets/icons/junit.svg',
-  description: 'Desarrollo de apps móviles nativas con Kotlin. Material Design y Jetpack Compose.',
+  description: "Con JUnit me ahorro el \"a mí me funciona en mi PC\" de mis compañeros de la U",
 };
 
 export const CUCUMBER: Tech = {
   name: 'Cucumber',
   localImage: '/assets/icons/cucumber.svg',
-  description: 'Desarrollo de apps móviles nativas con Kotlin. Material Design y Jetpack Compose.',
+  description:
+    'Me gusta porque hago que los requisitos se lean como historias y se ejecuten como tests',
 };
 
 export const JWT: Tech = {
   name: 'JWT',
   localImage: '/assets/icons/jwt.svg',
-  description: 'Desarrollo de apps móviles nativas con Kotlin. Material Design y Jetpack Compose.',
+  description:
+    'JWT es mi estándar favorito para asegurar que cada petición al backend sea de quien dice ser',
 };
 
 // INFRA
@@ -101,54 +104,54 @@ export const AWS: Tech = {
   name: 'AWS',
   localImage: '/assets/icons/aws.svg',
   description:
-    'EC2, S3, Lambda y RDS. Diseño de arquitecturas cloud escalables y costo-eficientes.',
+    'Dicen que es el mejor y quise aprender por eso. Me gustó porque si necesito algo, seguro ya tienen un servicio para eso ¡LO TIENEN TODO!',
 };
 
 export const DOCKER: Tech = {
   name: 'Docker',
   localImage: '/assets/icons/docker.svg',
   description:
-    'Contenerizo todo. Ambientes reproducibles, despliegues limpios y escalabilidad horizontal sin dolores de cabeza.',
+    'Confieso que ya no instalo bases de datos, si necesito una DB solo uso Docker y ya',
 };
 
 export const KUBERNETES: Tech = {
   name: 'Kubernetes',
   localImage: '/assets/icons/kubernetes.svg',
   description:
-    'Orquestación de contenedores a nivel producción. Deployments, services y auto-scaling.',
+    'Me dio curiosidad por qué todos hablaban de él y terminé entendiendo toda su arquitectura',
 };
 
 export const FIREBASE: Tech = {
   name: 'Firebase',
   localImage: '/assets/icons/firebase.svg',
   description:
-    'Backend como servicio: autenticación, base de datos en tiempo real, hosting y cloud functions.',
+    'Lo aprendí con Android y me gustó lo fácil que es tener una base de datos NoSQL en la nube y probarla enseguida con su modo offline',
 };
 
 export const MYSQL: Tech = {
   name: 'MySQL',
   localImage: '/assets/icons/mysql.svg',
   description:
-    'Base de datos relacional rápida y confiable. Consultas optimizadas y transacciones ACID.',
+    'No hay mucho que decir, en el mundo de las bases de datos, aquí es donde uno empieza, la vieja confiable',
 };
 
 export const POSTGRESQL: Tech = {
   name: 'PostgreSQL',
   localImage: '/assets/icons/postgresql.svg',
   description:
-    'Mi base de datos relacional preferida. Consultas complejas, índices, triggers y transacciones ACID.',
+    'Si en MySQL empecé, aquí fue donde profundicé. Fue aquí donde dominé las subconsultas y me metí de lleno en la lógica de los stored procedures',
 };
 
 export const GIT: Tech = {
   name: 'Git',
   localImage: '/assets/icons/git.svg',
   description:
-    'Control de versiones estratégico. Branching models, rebase interactivo y resolución de conflictos avanzada.',
+    'Se dañó mi PC y perdi todos mis proyectos de la universidad. De los errores se aprende y yo aprendí que sin Git no se programa',
 };
 
 export const GITHUB: Tech = {
   name: 'GitHub',
   localImage: '/assets/icons/github.svg',
   description:
-    'Plataforma de colaboración y control de versiones. Actions para CI/CD y gestión de proyectos.',
+    'Ya todo lo guardo en GitHub. Que se dañe el PC que se quiera dañar... Mentira, no hay plata y la RAM está carísima',
 };

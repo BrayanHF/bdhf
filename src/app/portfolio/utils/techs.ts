@@ -59,7 +59,7 @@ export const JAVA: Tech = {
 };
 
 export const SPRING: Tech = {
-  name: 'Spring Boot',
+  name: 'Spring',
   localImage: '/assets/icons/spring.svg',
   description:
     'Aprendí JSP antes de saber qué era un framework y entiendo por qué Spring Boot es el rey',

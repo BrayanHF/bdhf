@@ -5,6 +5,5 @@ export interface ProjectEntry {
   category: string;
   description: string;
   techs: Tech[];
-  localImage: string;
   route: string;
 }

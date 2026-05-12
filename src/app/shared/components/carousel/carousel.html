@@ -1,0 +1,85 @@
+<div class="relative w-full">
+  <!-- Descripción con doble texto para animación tipo ticker -->
+  <div class="relative mb-4 overflow-hidden">
+    <!-- Fantasma invisible para que el contenedor crezca con el texto -->
+    <p class="invisible text-sm sm:text-base text-white/70 px-4 leading-snug text-center">
+      {{ outgoingText() }}
+    </p>
+    <p
+      #outgoing
+      class="absolute inset-x-0 top-0 text-center text-sm sm:text-base text-white/70 px-4 leading-snug"
+    >
+      {{ outgoingText() }}
+    </p>
+    <p
+      #incoming
+      class="absolute inset-x-0 top-0 text-center text-sm sm:text-base text-white/70 px-4 leading-snug"
+    >
+      {{ incomingText() }}
+    </p>
+  </div>
+
+  <!-- Contenedor del carrusel -->
+  <div class="relative flex items-center justify-center">
+    <!-- Botón anterior -->
+    <button
+      (click)="goToPrevious()"
+      class="flex absolute left-0 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-neutral-800/80 text-white/80 hover:bg-neutral-700/90 hover:text-white transition-all duration-300 backdrop-blur-sm border border-neutral-700/50 -translate-x-1/2"
+      [attr.aria-label]="'Imagen anterior'"
+    >
+      <lucide-icon [img]="ChevronLeft" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+    </button>
+
+    <!-- Contenedor de imagen -->
+    <div
+      class="relative w-full overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950/60"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <div
+        #track
+        class="flex"
+        style="will-change: transform; touch-action: pan-y;"
+      >
+        @for (image of images(); track image.src) {
+          <div class="w-full flex-shrink-0">
+            <div class="relative aspect-video w-full p-1">
+              <picture class="relative block w-full h-full overflow-hidden rounded-md">
+                <source [srcset]="image.src.replace('.png', '.webp')" type="image/webp" />
+                <img
+                  [ngSrc]="image.src"
+                  [alt]="image.alt"
+                  class="w-full h-full object-cover"
+                  [priority]="$index === 0"
+                  loading="lazy"
+                  fill
+                />
+              </picture>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Botón siguiente -->
+    <button
+      (click)="goToNext()"
+      class="flex absolute right-0 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-neutral-800/80 text-white/80 hover:bg-neutral-700/90 hover:text-white transition-all duration-300 backdrop-blur-sm border border-neutral-700/50 translate-x-1/2"
+      [attr.aria-label]="'Siguiente imagen'"
+    >
+      <lucide-icon [img]="ChevronRight" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+    </button>
+  </div>
+
+  <!-- Indicadores de posición -->
+  <div class="flex justify-center items-center gap-2 mt-4">
+    @for (image of images(); track $index) {
+      <button
+        (click)="goToSlide($index)"
+        class="h-2 rounded-full transition-all duration-300"
+        [class]="currentIndex() === $index ? 'bg-white w-6' : 'bg-white/30 w-2 hover:bg-white/50'"
+        [attr.aria-label]="'Ir a imagen ' + ($index + 1)"
+      ></button>
+    }
+  </div>
+</div>

@@ -1,26 +1,25 @@
 import {
-  Component,
-  ElementRef,
-  input,
-  signal,
-  viewChild,
-  OnDestroy,
   afterNextRender,
   ChangeDetectionStrategy,
+  Component,
   effect,
+  ElementRef,
+  input,
+  OnDestroy,
+  signal,
+  viewChild,
 } from '@angular/core';
-import { LucideAngularModule, ChevronLeft, ChevronRight } from 'lucide-angular';
+import { ChevronLeft, ChevronRight, LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
-import { CarouselImage } from '../../interfaces/carousel-image.interface';
-import { NgOptimizedImage } from '@angular/common';
+import { CarouselImage } from '../../../interfaces/carousel-image.interface';
 
 @Component({
   selector: 'project-carousel',
-  imports: [LucideAngularModule, NgOptimizedImage],
-  templateUrl: './carousel.html',
+  imports: [LucideAngularModule],
+  templateUrl: './project-carousel.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Carousel implements OnDestroy {
+export class ProjectCarousel implements OnDestroy {
   readonly images = input.required<CarouselImage[]>();
   readonly currentIndex = signal(0);
 
@@ -39,7 +38,7 @@ export class Carousel implements OnDestroy {
   private resizeObserver: ResizeObserver | null = null;
   private touchStartX = 0;
 
-  constructor(private elRef: ElementRef) {
+  constructor() {
     afterNextRender(() => {
       this.updateContainerWidth();
       this.resizeObserver = new ResizeObserver(() => this.updateContainerWidth());
@@ -47,7 +46,6 @@ export class Carousel implements OnDestroy {
       if (container) this.resizeObserver.observe(container);
     });
 
-    // Inicializar textos cuando cambian las imágenes o el índice
     effect(() => {
       const imgs = this.images();
       const idx = this.currentIndex();
@@ -102,9 +100,6 @@ export class Carousel implements OnDestroy {
     const outgoingEl = this.outgoingRef().nativeElement;
     const incomingEl = this.incomingRef().nativeElement;
 
-    // Dirección visual del track: si newIndex > current, el track se mueve a la izquierda (1)
-    // Si newIndex < current, el track se mueve a la derecha (-1)
-    // Esto funciona correctamente incluso en wrap-around
     const direction = newIndex > this.currentIndex() ? 1 : -1;
 
     const currentDesc = this.images()[this.currentIndex()].description;
@@ -113,7 +108,6 @@ export class Carousel implements OnDestroy {
     this.outgoingText.set(currentDesc);
     this.incomingText.set(newDesc);
 
-    // Posiciones iniciales
     gsap.set(outgoingEl, { xPercent: 0, autoAlpha: 1 });
     gsap.set(incomingEl, { xPercent: direction * 100, autoAlpha: 1 });
 
@@ -127,7 +121,6 @@ export class Carousel implements OnDestroy {
       },
     });
 
-    // Todo anima a la vez durante 0.6s
     const duration = 0.6;
     const ease = 'power3.inOut';
 

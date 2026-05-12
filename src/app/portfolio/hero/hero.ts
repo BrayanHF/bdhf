@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import gsap from 'gsap';
-import { FloatingShape } from '../../shared/components/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/gradient-orb/gradient-orb';
+import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
+import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
 import { ScrollService } from '../../shared/services/scroll.service';
 
 @Component({

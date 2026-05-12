@@ -1,148 +1,23 @@
-<div class="bg-black min-h-screen">
+<div class="bg-black flex flex-col">
 
   <back-button />
 
-  <section class="relative w-full pt-12 sm:pt-16 pb-16">
-    <div class="relative z-10 text-center px-6">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
-          LexBot
-        </span>
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-white/40 max-w-xl mx-auto">
-        Asistente legal con inteligencia artificial para simplificar trámites jurídicos en Colombia
-      </p>
-    </div>
-  </section>
+  <project-title
+    title="LexbBot"
+    subtitle="Asistente legal con inteligencia artificial para simplificar trámites jurídicos en Colombia"
+  />
 
-  <section class="relative w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32">
-    <project-carousel [images]="images" />
-  </section>
+  <project-carousel [images]="images" />
 
-  <section class="relative w-full px-4 sm:px-8 lg:px-16 pb-24 sm:pb-32">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-6 sm:mb-8">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-          Flujo de comunicación entre componentes de LexBot
-        </h2>
-      </div>
+  <project-structure-img
+    label="Flujo de comunicación entre componentes de LexBot"
+    imgNoFormat="assets/images/LexBotApp"
+  />
 
-      <div class="w-full mx-auto">
-        <div class="relative overflow-hidden rounded-2xl">
-          <picture class="relative block w-full">
-            <source srcset="assets/images/LexBotApp.webp" type="image/webp" />
-            <img
-              src="assets/images/LexBotApp.png"
-              alt="Vista general de la aplicación LexBot"
-              class="w-full h-auto object-contain"
-              loading="lazy"
-            />
-          </picture>
-        </div>
-      </div>
-    </div>
-  </section>
+  <project-about [about]="aboutProject" />
 
-  <section class="relative w-full px-4 sm:px-8 lg:px-16 pb-16 sm:pb-24">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">
-        Sobre el proyecto
-      </h2>
-      <div class="space-y-4 text-white/90 leading-relaxed text-lg">
-        <p>
-          En Colombia, enfrentar un proceso legal es un desafío que la mayoría no puede costear. Con un índice de
-          pobreza monetaria que afecta al 33% de la población, el acceso a una asesoría jurídica se convierte en un
-          lujo, ya que los honorarios de un abogado pueden superar con creces los ingresos mensuales de una
-          familia vulnerable. LexBot nace para reducir esta brecha de desigualdad, facilitando el acceso al conocimiento
-          jurídico de forma gratuita. No se busca reemplazar la labor de un abogado, sino ofrecer una herramienta de
-          orientación para que los ciudadanos de bajos recursos dejen de estar indefensos ante trámites básicos por
-          falta de dinero o desconocimiento.
-        </p>
-        <p>
-          Para que esta ayuda sea efectiva y confiable, el sistema cuenta con una infraestructura capaz de alternar e
-          integrarse con distintos modelos de inteligencia artificial según se requiera. El mayor reto técnico es la
-          falta de una base de datos nacional unificada y actualizada de las leyes colombianas. Para solucionar esto,
-          implementamos herramientas de búsqueda especializada como Tavily, que permiten al sistema consultar la
-          normativa vigente en tiempo real antes de generar una respuesta. Esto ayuda a reducir errores y garantiza que
-          la información legal no sea inventada, sino que esté respaldada por las leyes actuales, superando así las
-          limitaciones de conocimiento que suelen tener los modelos de IA estándar.
-        </p>
-        <p>
-          El alcance actual del proyecto permite que cualquier persona genere documentos esenciales como derechos de
-          petición o querellas con solo conversar con el asistente. Logramos crear un puente entre la complejidad legal
-          y la necesidad ciudadana, aunque siempre dejando claro que el sistema es un orientador y no un sustituto de la
-          defensa profesional. A futuro, el camino es seguir perfeccionando estos motores de búsqueda en tiempo real
-          para cubrir áreas más sensibles y asegurar que, sin importar el presupuesto, ningún colombiano se quede sin
-          saber cómo reclamar sus derechos fundamentales.
-        </p>
-      </div>
-    </div>
-  </section>
+  <project-techs [techCategories]="techCategories" />
 
-  <section class="relative w-full px-4 sm:px-8 lg:px-16 pb-16 sm:pb-24">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
-        Tecnologías utilizadas
-      </h2>
-
-      <div class="space-y-10">
-        @for (category of techCategories; track category.title) {
-          <div>
-            <h3 class="text-lg sm:text-xl font-semibold text-white/80 mb-4 pl-2 border-l-2 border-white/20">
-              {{ category.title }}
-            </h3>
-            <div class="space-y-3">
-              @for (tech of category.techs; track $index) {
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-neutral-800 bg-neutral-950/40">
-                  <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-white/5">
-                    <img [src]="tech.localImage" [alt]="tech.name" class="w-6 h-6 object-contain" />
-                  </div>
-                  <div class="min-w-0">
-                    <h4 class="text-sm font-semibold text-white mb-1">{{ tech.name }}</h4>
-                    <p class="text-sm text-white/50 leading-relaxed">{{ tech.description }}</p>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="relative w-full px-4 sm:px-8 lg:px-16 pb-24 sm:pb-32">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="rounded-2xl border border-neutral-800 bg-neutral-950/60 p-8 sm:p-12">
-        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-          ¿Te interesa el código?
-        </h2>
-        <p class="text-sm sm:text-base text-white/50 mb-6 max-w-lg mx-auto">
-          Puedes explorar los repositorios completos en GitHub, tanto el frontend como el backend del proyecto.
-        </p>
-        <a
-          href="https://github.com/BrayanHF/LexBot-Angular"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex m-4 items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-neutral-200 transition-colors duration-300"
-        >
-          <div class="h-8 w-8">
-            <img src="assets/icons/angular.svg" alt="LinkedIn"/>
-          </div>
-          Front en GitHub
-        </a>
-        <a
-          href="https://github.com/BrayanHF/LexBot-Spring"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex m-4 items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-neutral-200 transition-colors duration-300"
-        >
-          <div class="h-8 w-8">
-            <img src="assets/icons/spring.svg" alt="LinkedIn"/>
-          </div>
-          Back en GitHub
-        </a>
-      </div>
-    </div>
-  </section>
+  <project-github [hrefs]="githubLinks" />
 
 </div>

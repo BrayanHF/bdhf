@@ -10,7 +10,7 @@ import {
   MessageCircleMore,
 } from 'lucide-angular';
 import gsap from 'gsap';
-import { ScrollService } from '../../services/scroll.service';
+import { ScrollService } from '../../../services/scroll.service';
 
 @Component({
   selector: 'nav-button',

@@ -3,7 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { NavButton } from '../shared/components/nav-button/nav-button';
+import { NavButton } from '../shared/components/buttons/nav-button/nav-button';
 import { Hero } from './hero/hero';
 import { Experience } from './experience/experience';
 import { Projects } from './projects/projects';

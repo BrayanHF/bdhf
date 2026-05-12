@@ -1,6 +1,6 @@
 import { afterNextRender, Component, effect, ElementRef, inject, input, OnDestroy, viewChild } from '@angular/core';
 import gsap from 'gsap';
-import { Tech } from '../../interfaces/tech.interface';
+import { Tech } from '../../../interfaces/tech.interface';
 import { TechIcon } from './tech-icon';
 import { TechCardsState } from './tech-cards.state';
 

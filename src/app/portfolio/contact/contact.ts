@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { FloatingShape } from '../../shared/components/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/gradient-orb/gradient-orb';
+import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
+import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
 import { LucideAngularModule, Mail, Phone, Github, Linkedin } from 'lucide-angular';
 
 @Component({

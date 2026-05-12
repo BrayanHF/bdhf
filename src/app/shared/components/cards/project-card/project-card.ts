@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { ProjectEntry } from '../../interfaces/project.interface';
+import { ProjectEntry } from '../../../interfaces/project.interface';
 import { TechCard } from '../tech-card/tech-card';
 import { RouterLink } from '@angular/router';
 

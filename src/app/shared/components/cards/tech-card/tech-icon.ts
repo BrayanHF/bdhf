@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Tech } from '../../interfaces/tech.interface';
+import { Tech } from '../../../interfaces/tech.interface';
 
 @Component({
   selector: 'tech-icon',

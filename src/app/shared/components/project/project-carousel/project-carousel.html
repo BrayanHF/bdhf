@@ -1,4 +1,4 @@
-<div class="relative w-full">
+<section class="w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32">
   <!-- Descripción con doble texto para animación tipo ticker -->
   <div class="relative mb-4 overflow-hidden">
     <!-- Fantasma invisible para que el contenedor crezca con el texto -->
@@ -47,12 +47,10 @@
               <picture class="relative block w-full h-full overflow-hidden rounded-md">
                 <source [srcset]="image.src.replace('.png', '.webp')" type="image/webp" />
                 <img
-                  [ngSrc]="image.src"
+                  [src]="image.src"
                   [alt]="image.alt"
                   class="w-full h-full object-cover"
-                  [priority]="$index === 0"
                   loading="lazy"
-                  fill
                 />
               </picture>
             </div>
@@ -73,7 +71,7 @@
 
   <!-- Indicadores de posición -->
   <div class="flex justify-center items-center gap-2 mt-4">
-    @for (image of images(); track $index) {
+    @for (_ of images(); track $index) {
       <button
         (click)="goToSlide($index)"
         class="h-2 rounded-full transition-all duration-300"
@@ -82,4 +80,4 @@
       ></button>
     }
   </div>
-</div>
+</section>

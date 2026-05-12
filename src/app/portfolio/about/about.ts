@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FloatingShape } from '../../shared/components/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/gradient-orb/gradient-orb';
+import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
+import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
 
 @Component({
   selector: 'about-section',

@@ -1,4 +1,4 @@
-import { ProjectEntry } from '../../shared/interfaces/project.interface';
+import { ProjectEntry } from '../../../shared/interfaces/project.interface';
 import { ANDROID, ANGULAR, FIREBASE, KOTLIN, SPRING } from './techs';
 
 export const project_list: ProjectEntry[] = [

@@ -25,7 +25,7 @@ import {
   SPRING,
   TAILWIND,
   TYPESCRIPT,
-} from '../utils/techs';
+} from '../utils/portfolio/techs';
 import { TechCard } from '../../shared/components/cards/tech-card/tech-card';
 
 @Component({

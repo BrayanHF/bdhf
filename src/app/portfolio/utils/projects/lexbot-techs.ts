@@ -1,4 +1,4 @@
-import { Tech } from '../../shared/interfaces/tech.interface';
+import { Tech } from '../../../shared/interfaces/tech.interface';
 
 export const LEXBOT_ANGULAR: Tech = {
   name: 'Angular',

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProjectCard } from '../../shared/components/cards/project-card/project-card';
 import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
 import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
-import { project_list } from '../utils/project-list';
+import { project_list } from '../utils/portfolio/project-list';
 
 @Component({
   selector: 'projects-section',

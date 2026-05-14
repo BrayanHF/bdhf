@@ -1,4 +1,4 @@
-import { Tech } from '../../shared/interfaces/tech.interface';
+import { Tech } from '../../../shared/interfaces/tech.interface';
 
 // FRONT
 export const ANGULAR: Tech = {

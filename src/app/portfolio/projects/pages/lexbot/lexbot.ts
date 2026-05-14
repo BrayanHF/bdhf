@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProjectCarousel } from '../../../../shared/components/project/project-carousel/project-carousel';
-import { lexbotImages } from '../../../utils/lexbot-images';
+import { lexbotImages } from '../../../utils/projects/lexbot-images';
 import { BackButton } from '../../../../shared/components/buttons/back-button/back-button';
 import { StackCategory } from '../../../../shared/interfaces/stack-category.interface';
 import {
@@ -12,7 +12,7 @@ import {
   LEXBOT_SPRING_BOOT,
   LEXBOT_TAILWIND,
   LEXBOT_TAVILY,
-} from '../../../utils/lexbot-techs';
+} from '../../../utils/projects/lexbot-techs';
 import { GitHubLink } from '../../../../shared/interfaces/github-link.interface';
 import { ProjectGithub } from '../../../../shared/components/project/project-github/project-github';
 import { ProjectTitle } from '../../../../shared/components/project/project-title/project-title';

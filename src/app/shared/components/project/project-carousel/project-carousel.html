@@ -1,26 +1,10 @@
 <section class="w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32">
-  <!-- Descripción con doble texto para animación tipo ticker -->
-  <div class="relative mb-4 overflow-hidden">
-    <!-- Fantasma invisible para que el contenedor crezca con el texto -->
-    <p class="invisible text-sm sm:text-base text-white/70 px-4 leading-snug text-center">
-      {{ outgoingText() }}
-    </p>
-    <p
-      #outgoing
-      class="absolute inset-x-0 top-0 text-center text-sm sm:text-base text-white/70 px-4 leading-snug"
-    >
-      {{ outgoingText() }}
-    </p>
-    <p
-      #incoming
-      class="absolute inset-x-0 top-0 text-center text-sm sm:text-base text-white/70 px-4 leading-snug"
-    >
-      {{ incomingText() }}
-    </p>
-  </div>
-
   <!-- Contenedor del carrusel -->
-  <div class="relative flex items-center justify-center">
+  <div
+    class="relative flex items-center justify-center"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+  >
     <!-- Botón anterior -->
     <button
       (click)="goToPrevious()"
@@ -30,26 +14,30 @@
       <lucide-icon [img]="ChevronLeft" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
     </button>
 
-    <!-- Contenedor de imagen -->
-    <div
-      class="relative w-full overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950/60"
-      (touchstart)="onTouchStart($event)"
-      (touchend)="onTouchEnd($event)"
-    >
+    <!-- Contenedor de imagen con overflow hidden -->
+    <div class="w-full overflow-hidden">
+      <!-- Track que se anima -->
       <div
         #track
         class="flex"
         style="will-change: transform; touch-action: pan-y;"
       >
         @for (image of images(); track image.src) {
-          <div class="w-full flex-shrink-0">
-            <div class="relative aspect-video w-full p-1">
-              <picture class="relative block w-full h-full overflow-hidden rounded-md">
+          <div class="w-full flex-shrink-0 flex flex-col">
+            <!-- Texto con altura fija para evitar saltos -->
+            <div class="min-h-[48px] flex items-center justify-center px-4 overflow-hidden">
+              <p class="text-sm sm:text-base text-white/70 text-center leading-snug">
+                {{ image.description }}
+              </p>
+            </div>
+            <!-- Imagen que se ajusta sin salirse del carrusel -->
+            <div class="relative w-full aspect-video flex items-center justify-center p-2 rounded-xl border border-neutral-800 bg-neutral-950/60">
+              <picture class="relative block w-full h-full flex items-center justify-center">
                 <source [srcset]="image.src.replace('.png', '.webp')" type="image/webp" />
                 <img
                   [src]="image.src"
                   [alt]="image.alt"
-                  class="w-full h-full object-cover"
+                  class="max-w-full max-h-full object-contain rounded-md"
                   loading="lazy"
                 />
               </picture>

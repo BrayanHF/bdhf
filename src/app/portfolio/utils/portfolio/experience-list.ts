@@ -1,4 +1,4 @@
-import { ExperienceEntry } from '../../shared/interfaces/experience.interface';
+import { ExperienceEntry } from '../../../shared/interfaces/experience.interface';
 
 export const experience_list: ExperienceEntry[] = [
   {

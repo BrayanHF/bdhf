@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { GradientOrbConfig } from '../../../interfaces/gradient-orb-config.interface';
 
 @Component({
   selector: 'gradient-orb',
@@ -6,26 +7,17 @@ import { Component, Input } from '@angular/core';
   template: `
     <div
       class="absolute rounded-full pointer-events-none"
-      [style.top]="top ?? undefined"
-      [style.right]="right ?? undefined"
-      [style.bottom]="bottom ?? undefined"
-      [style.left]="left ?? undefined"
-      [style.width.px]="size"
-      [style.height.px]="size"
-      [style.backgroundColor]="color"
-      [style.opacity]="opacity"
-      [style.filter]="'blur(64px)'"
-      [style.transform]="translate ?? undefined"
+      [style.top]="config().top"
+      [style.left]="config().left"
+      [style.width.px]="config().size"
+      [style.height.px]="config().size"
+      [style.backgroundColor]="config().color"
+      [style.opacity]="config().opacity"
+      [style.filter]="'blur(' + config().blur + 'px)'"
+      [style.transform]="'translate(-50%, -50%)'"
     ></div>
   `,
 })
 export class GradientOrb {
-  @Input() top?: string;
-  @Input() right?: string;
-  @Input() bottom?: string;
-  @Input() left?: string;
-  @Input() size: number = 400;
-  @Input() color: string = '#ffffff';
-  @Input() opacity: number = 0.03;
-  @Input() translate?: string;
+  readonly config = input.required<GradientOrbConfig>();
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import gsap from 'gsap';
-import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
+import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
+import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
 import { ScrollService } from '../../shared/services/scroll.service';
 
 @Component({
   selector: 'hero-section',
-  imports: [FloatingShape, GradientOrb],
+  imports: [FloatingShapes, GradientOrbs],
   templateUrl: './hero.html',
 })
 export class Hero implements OnInit {

@@ -1,6 +1,5 @@
 <section class="relative w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32 overflow-hidden">
-  <floating-shape top="5%" left="3%" [size]="16" shape="circle" color="white" [opacity]="0.12" [blur]="5" [animRange]="10" [animRotationRange]="8" [animDurationMin]="6" [animDurationMax]="10" />
-  <floating-shape bottom="8%" right="4%" [size]="14" shape="rounded" color="#737373" [opacity]="0.1" [rotation]="20" [animRange]="8" [animRotationRange]="6" [animDurationMin]="7" [animDurationMax]="12" [animDelay]="2" />
+  <floating-shapes [count]="4" [discreet]="true" />
 
   <div
     class="relative flex items-center justify-center"
@@ -33,10 +32,11 @@
               <picture class="relative block w-full h-full flex items-center justify-center">
                 <source [srcset]="image.src.replace('.png', '.webp')" type="image/webp" />
                 <img
-                  [src]="image.src"
+                  [ngSrc]="image.src"
                   [alt]="image.alt"
                   class="max-w-full max-h-full object-contain rounded-md"
                   loading="lazy"
+                  fill
                 />
               </picture>
             </div>

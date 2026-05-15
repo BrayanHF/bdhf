@@ -1,10 +1,10 @@
 import { Component, input } from '@angular/core';
 import { StackCategory } from '../../../interfaces/stack-category.interface';
-import { FloatingShape } from '../../decoration/floating-shape/floating-shape';
+import { FloatingShapes } from '../../decoration/floating-shapes/floating-shapes';
 
 @Component({
   selector: 'project-techs',
-  imports: [FloatingShape],
+  imports: [FloatingShapes],
   templateUrl: './project-techs.html',
 })
 export class ProjectTechs {

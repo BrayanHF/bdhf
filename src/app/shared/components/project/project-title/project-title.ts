@@ -1,9 +1,9 @@
 import { Component, input } from '@angular/core';
-import { FloatingShape } from '../../decoration/floating-shape/floating-shape';
+import { FloatingShapes } from '../../decoration/floating-shapes/floating-shapes';
 
 @Component({
   selector: 'project-title',
-  imports: [FloatingShape],
+  imports: [FloatingShapes],
   templateUrl: './project-title.html',
 })
 export class ProjectTitle {

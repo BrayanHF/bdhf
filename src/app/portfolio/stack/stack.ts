@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
+import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
+import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
 import { StackCategory } from '../../shared/interfaces/stack-category.interface';
 import {
   ANDROID,
@@ -30,7 +30,7 @@ import { TechCard } from '../../shared/components/cards/tech-card/tech-card';
 
 @Component({
   selector: 'stack-section',
-  imports: [FloatingShape, GradientOrb, TechCard],
+  imports: [FloatingShapes, GradientOrbs, TechCard],
   templateUrl: './stack.html',
 })
 export class Stack {

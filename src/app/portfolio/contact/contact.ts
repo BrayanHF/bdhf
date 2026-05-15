@@ -1,12 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
+import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
+import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
 import { LucideAngularModule, Mail, Phone, Github, Linkedin } from 'lucide-angular';
 
 @Component({
   selector: 'contact-section',
-  imports: [ReactiveFormsModule, FloatingShape, GradientOrb, LucideAngularModule],
+  imports: [ReactiveFormsModule, FloatingShapes, GradientOrbs, LucideAngularModule],
   templateUrl: './contact.html',
 })
 export class Contact {

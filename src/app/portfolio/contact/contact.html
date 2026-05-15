@@ -1,20 +1,8 @@
 <section class="relative w-full overflow-hidden py-24 sm:py-32 flex items-center">
 
-  <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <floating-shape top="12%" right="10%" [size]="16" shape="circle" color="white" [opacity]="0.4" [blur]="4"
-                    [animDelay]="0" />
-    <floating-shape top="35%" left="12%" [size]="20" shape="rounded" color="#d4d4d4" [opacity]="0.3" [rotation]="45"
-                    [animDelay]="0.5" />
-    <floating-shape top="60%" right="8%" [size]="12" shape="circle" color="#737373" [opacity]="0.5" [animDelay]="1.0" />
-    <floating-shape top="78%" left="18%" [size]="24" shape="circle" color="white" [opacity]="0.25" [blur]="4"
-                    [animDelay]="1.5" />
-    <floating-shape top="88%" right="22%" [size]="16" shape="square" color="#d4d4d4" [opacity]="0.3" [rotation]="-12"
-                    [animDelay]="2.0" />
-  </div>
+  <floating-shapes [count]="5" [discreet]="false" />
 
-  <gradient-orb top="20%" right="25%" [size]="400" color="white" [opacity]="0.03" />
-  <gradient-orb bottom="20%" left="20%" [size]="350" color="#d4d4d4" [opacity]="0.03" />
-  <gradient-orb top="60%" right="30%" [size]="300" color="#737373" [opacity]="0.02" />
+  <gradient-orbs [count]="3" position="center" />
 
   <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
 

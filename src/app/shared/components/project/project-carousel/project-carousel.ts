@@ -12,11 +12,12 @@ import {
 import { ChevronLeft, ChevronRight, LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
 import { CarouselImage } from '../../../interfaces/carousel-image.interface';
-import { FloatingShape } from '../../decoration/floating-shape/floating-shape';
+import { FloatingShapes } from '../../decoration/floating-shapes/floating-shapes';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'project-carousel',
-  imports: [LucideAngularModule, FloatingShape],
+  imports: [LucideAngularModule, FloatingShapes, NgOptimizedImage],
   templateUrl: './project-carousel.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

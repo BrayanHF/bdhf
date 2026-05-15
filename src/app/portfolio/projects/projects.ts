@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ProjectCard } from '../../shared/components/cards/project-card/project-card';
-import { FloatingShape } from '../../shared/components/decoration/floating-shape/floating-shape';
-import { GradientOrb } from '../../shared/components/decoration/gradient-orb/gradient-orb';
+import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
+import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
 import { project_list } from '../utils/portfolio/project-list';
 
 @Component({
   selector: 'projects-section',
-  imports: [ProjectCard, FloatingShape, GradientOrb],
+  imports: [ProjectCard, FloatingShapes, GradientOrbs],
   templateUrl: './projects.html',
 })
 export class Projects {

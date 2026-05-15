@@ -1,5 +1,5 @@
 <section class="relative w-full overflow-hidden py-24 sm:py-32">
-  <floating-shapes [count]="5" [discreet]="false" />
+  <floating-shapes />
 
   <gradient-orbs [count]="3" position="right" />
 
@@ -17,7 +17,7 @@
 
 
     <div class="space-y-18 sm:space-y-20">
-      @for (exp of experiences; track $index; let isLast = $last) {
+      @for (exp of experiences; track $index; ) {
         <article class="relative pl-8 py-2 transition-all duration-500 group">
           <experience-card [experience]="exp" />
         </article>

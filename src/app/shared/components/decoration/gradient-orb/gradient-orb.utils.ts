@@ -2,23 +2,8 @@ import {
   GradientOrbConfig,
   GradientOrbPosition,
 } from '../../../interfaces/gradient-orb-config.interface';
-import {
-  GRADIENT_ORB_BLUR,
-  GRADIENT_ORB_COLORS,
-  GRADIENT_ORB_RANGES,
-} from './gradient-orb.config';
-
-function rand(min: number, max: number): number {
-  return Math.random() * (max - min) + min;
-}
-
-function randInt(min: number, max: number): number {
-  return Math.floor(rand(min, max + 1));
-}
-
-function pick<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+import { GRADIENT_ORB_BLUR, GRADIENT_ORB_COLORS, GRADIENT_ORB_RANGES } from './gradient-orb.config';
+import { pick, rand, randInt } from '../../../helpers/random.helpers';
 
 export function generateOrbConfig(
   position: GradientOrbPosition,

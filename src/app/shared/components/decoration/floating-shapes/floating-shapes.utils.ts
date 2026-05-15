@@ -1,17 +1,6 @@
 import { COLORS, DISCREET_RANGES, NORMAL_RANGES, SHAPES } from './floating-shapes.config';
 import { FloatingShapeConfig } from '../../../interfaces/floating-shape-config.interface';
-
-function rand(min: number, max: number): number {
-  return Math.random() * (max - min) + min;
-}
-
-function randInt(min: number, max: number): number {
-  return Math.floor(rand(min, max + 1));
-}
-
-function pick<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+import { pick, rand, randInt } from '../../../helpers/random.helpers';
 
 export function generateConfig(discreet: boolean): FloatingShapeConfig {
   const ranges = discreet ? DISCREET_RANGES : NORMAL_RANGES;
@@ -25,7 +14,7 @@ export function generateConfig(discreet: boolean): FloatingShapeConfig {
   const isCentered = Math.random() < ranges.centerChance;
 
   if (isCentered) {
-    top = `${randInt(5, 90)}%`;
+    top = `${randInt(15, 80)}%`;
     const horizontalPos = `${randInt(10, 80)}%`;
     if (Math.random() < 0.5) {
       left = horizontalPos;
@@ -33,7 +22,7 @@ export function generateConfig(discreet: boolean): FloatingShapeConfig {
       right = horizontalPos;
     }
   } else {
-    top = `${randInt(0, 95)}%`;
+    top = `${randInt(10, 85)}%`;
     const edgePos = `${randInt(0, ranges.maxEdgePercent)}%`;
     if (Math.random() < 0.5) {
       left = edgePos;

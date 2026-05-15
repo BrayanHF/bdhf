@@ -36,12 +36,12 @@ import { TechCard } from '../../shared/components/cards/tech-card/tech-card';
 export class Stack {
   readonly categories: StackCategory[] = [
     {
-      title: 'frontend',
-      techs: [ANGULAR, TYPESCRIPT, JAVASCRIPT, CSS, SCSS, TAILWIND, HTML],
-    },
-    {
       title: 'backend',
       techs: [JAVA, SPRING, KOTLIN, ANDROID, JUNIT, CUCUMBER, JWT],
+    },
+    {
+      title: 'frontend',
+      techs: [ANGULAR, TYPESCRIPT, JAVASCRIPT, CSS, SCSS, TAILWIND, HTML],
     },
     {
       title: 'infraestructura',

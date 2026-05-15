@@ -1,8 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
 import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
-import { LucideAngularModule, Mail, Phone, Github, Linkedin } from 'lucide-angular';
+import { LucideAngularModule, Mail, Phone } from 'lucide-angular';
+import { EmailService } from '../../shared/services/email.service';
 
 @Component({
   selector: 'contact-section',
@@ -11,15 +19,17 @@ import { LucideAngularModule, Mail, Phone, Github, Linkedin } from 'lucide-angul
 })
 export class Contact {
   private fb = inject(FormBuilder);
+  private emailService = inject(EmailService);
 
   readonly MailIcon = Mail;
   readonly PhoneIcon = Phone;
-  readonly GithubIcon = Github;
-  readonly LinkedinIcon = Linkedin;
 
   protected showSentMessage = signal(false);
 
-  protected contactForm = this.fb.group({
+  protected showErrorMessage = signal(false);
+  protected errorMessage = '';
+
+  protected contactForm = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, this.emailValidator]],
     message: ['', Validators.required],
@@ -51,17 +61,37 @@ export class Contact {
   protected onSubmit() {
     if (this.contactForm.get('website')?.value) return;
 
+    if (!this.canSendMessage()) {
+      this.errorMessage = 'Has alcanzado el límite de mensajes por hora. Intente más tarde.';
+      this.showErrorMessage.set(true);
+      setTimeout(() => this.showErrorMessage.set(false), 8000);
+      return;
+    }
+
     this.contactForm.markAllAsTouched();
 
     if (this.contactForm.invalid) return;
 
-    // TODO: make works
-    console.log('Form submitted:', this.contactForm.value);
+    const { name, email, message } = this.contactForm.getRawValue();
 
-
-    this.showSentMessage.set(true);
-    this.contactForm.reset();
-    setTimeout(() => this.showSentMessage.set(false), 4000);
+    this.emailService
+      .send({
+        name,
+        email,
+        message,
+      })
+      .subscribe({
+        next: () => {
+          this.showSentMessage.set(true);
+          this.contactForm.reset();
+          setTimeout(() => this.showSentMessage.set(false), 4000);
+        },
+        error: () => {
+          this.errorMessage = 'No se pudo enviar el mensaje. Intente nuevamente más tarde.';
+          this.showErrorMessage.set(true);
+          setTimeout(() => this.showErrorMessage.set(false), 6000);
+        },
+      });
   }
 
   private emailValidator(control: AbstractControl): ValidationErrors | null {
@@ -70,4 +100,38 @@ export class Contact {
     return emailRegex.test(control.value) ? null : { invalidEmail: true };
   }
 
+  private canSendMessage(): boolean {
+    const stored = localStorage.getItem('contact_form_limit');
+
+    const now = Date.now();
+
+    if (!stored) {
+      this.updateContactFormLimit(1, now);
+      return true;
+    }
+
+    const data = JSON.parse(stored);
+
+    if (data.count >= 3) return false;
+
+    const isExpired = now - data.timestamp > 3600000;
+
+    if (isExpired) {
+      this.updateContactFormLimit(1, now);
+      return true;
+    }
+
+    this.updateContactFormLimit(data.count + 1, data.timestamp);
+    return true;
+  }
+
+  private updateContactFormLimit(count: number, timestamp: number): void {
+    localStorage.setItem(
+      'contact_form_limit',
+      JSON.stringify({
+        count: count,
+        timestamp: timestamp,
+      }),
+    );
+  }
 }

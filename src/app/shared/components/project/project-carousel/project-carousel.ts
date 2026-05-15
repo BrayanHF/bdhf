@@ -12,10 +12,11 @@ import {
 import { ChevronLeft, ChevronRight, LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
 import { CarouselImage } from '../../../interfaces/carousel-image.interface';
+import { FloatingShape } from '../../decoration/floating-shape/floating-shape';
 
 @Component({
   selector: 'project-carousel',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, FloatingShape],
   templateUrl: './project-carousel.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -86,10 +87,6 @@ export class ProjectCarousel implements OnDestroy {
       this.goToNext();
     }
   }
-
-  // ------------------------------------------------------------
-  // Private helpers
-  // ------------------------------------------------------------
 
   private get slideWidth(): number {
     return this.trackRef().nativeElement.parentElement?.clientWidth || 0;

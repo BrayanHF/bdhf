@@ -1,8 +1,9 @@
 import { Component, input } from '@angular/core';
+import { FloatingShape } from '../../decoration/floating-shape/floating-shape';
 
 @Component({
   selector: 'project-structure-img',
-  imports: [],
+  imports: [FloatingShape],
   templateUrl: './project-structure-img.html',
 })
 export class ProjectStructureImg {

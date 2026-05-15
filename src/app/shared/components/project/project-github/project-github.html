@@ -1,12 +1,12 @@
-<section class="w-full px-4 sm:px-8 lg:px-16 pb-24 sm:pb-32">
+<section class="relative w-full px-4 sm:px-8 lg:px-16 pb-24 sm:pb-32 overflow-hidden">
+  <floating-shape top="10%" left="5%" [size]="12" shape="circle" color="white" [opacity]="0.15" [blur]="6" [animRange]="10" [animRotationRange]="8" [animDurationMin]="6" [animDurationMax]="10" />
+  <floating-shape bottom="15%" right="6%" [size]="10" shape="rounded" color="#d4d4d4" [opacity]="0.12" [rotation]="25" [animRange]="8" [animRotationRange]="6" [animDurationMin]="7" [animDurationMax]="12" [animDelay]="1" />
+
   <div class="max-w-3xl mx-auto text-center">
-    <div class="rounded-2xl border border-neutral-800 bg-neutral-950/60 p-8 sm:p-12">
+    <div class="rounded-2xl border border-neutral-800 bg-neutral-950/40 p-8 sm:p-12">
       <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
         ¿Te interesa el código?
       </h2>
-      <p class="text-sm sm:text-base text-white/50 mb-6 max-w-lg mx-auto">
-        Puedes explorarlo en GitHub.
-      </p>
       @for (href of hrefs(); track $index) {
         <a
           [href]="href.url"

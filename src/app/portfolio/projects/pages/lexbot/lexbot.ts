@@ -5,9 +5,13 @@ import { BackButton } from '../../../../shared/components/buttons/back-button/ba
 import { StackCategory } from '../../../../shared/interfaces/stack-category.interface';
 import {
   LEXBOT_ANGULAR,
-  LEXBOT_AWS,
+  LEXBOT_AWS_ACM,
+  LEXBOT_AWS_AMPLIFY,
+  LEXBOT_AWS_EB,
+  LEXBOT_AWS_ROUTE53,
   LEXBOT_DEEPSEEK,
-  LEXBOT_FIREBASE,
+  LEXBOT_FIREBASE_AUTH,
+  LEXBOT_FIRESTORE,
   LEXBOT_OPENAI,
   LEXBOT_SPRING_BOOT,
   LEXBOT_TAILWIND,
@@ -61,16 +65,23 @@ export default class Lexbot {
 
   readonly techCategories: StackCategory[] = [
     {
+      title: 'Backend y APIs',
+      techs: [
+        LEXBOT_SPRING_BOOT,
+        LEXBOT_FIRESTORE,
+        LEXBOT_FIREBASE_AUTH,
+        LEXBOT_OPENAI,
+        LEXBOT_DEEPSEEK,
+        LEXBOT_TAVILY,
+      ],
+    },
+    {
       title: 'Frontend',
       techs: [LEXBOT_ANGULAR, LEXBOT_TAILWIND],
     },
     {
-      title: 'Backend y APIs',
-      techs: [LEXBOT_SPRING_BOOT, LEXBOT_OPENAI, LEXBOT_DEEPSEEK, LEXBOT_TAVILY],
-    },
-    {
       title: 'Infraestructura',
-      techs: [LEXBOT_AWS, LEXBOT_FIREBASE],
+      techs: [LEXBOT_AWS_EB, LEXBOT_AWS_AMPLIFY, LEXBOT_AWS_ROUTE53, LEXBOT_AWS_ACM],
     },
   ];
 

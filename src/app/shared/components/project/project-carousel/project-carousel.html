@@ -1,11 +1,12 @@
-<section class="w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32">
-  <!-- Contenedor del carrusel -->
+<section class="relative w-full px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto pb-24 sm:pb-32 overflow-hidden">
+  <floating-shape top="5%" left="3%" [size]="16" shape="circle" color="white" [opacity]="0.12" [blur]="5" [animRange]="10" [animRotationRange]="8" [animDurationMin]="6" [animDurationMax]="10" />
+  <floating-shape bottom="8%" right="4%" [size]="14" shape="rounded" color="#737373" [opacity]="0.1" [rotation]="20" [animRange]="8" [animRotationRange]="6" [animDurationMin]="7" [animDurationMax]="12" [animDelay]="2" />
+
   <div
     class="relative flex items-center justify-center"
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)"
   >
-    <!-- Botón anterior -->
     <button
       (click)="goToPrevious()"
       class="flex absolute left-0 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-neutral-800/80 text-white/80 hover:bg-neutral-700/90 hover:text-white transition-all duration-300 backdrop-blur-sm border border-neutral-700/50 -translate-x-1/2"
@@ -14,9 +15,7 @@
       <lucide-icon [img]="ChevronLeft" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
     </button>
 
-    <!-- Contenedor de imagen con overflow hidden -->
     <div class="w-full overflow-hidden">
-      <!-- Track que se anima -->
       <div
         #track
         class="flex"
@@ -24,14 +23,13 @@
       >
         @for (image of images(); track image.src) {
           <div class="w-full flex-shrink-0 flex flex-col">
-            <!-- Texto con altura fija para evitar saltos -->
             <div class="min-h-[48px] flex items-center justify-center px-4 overflow-hidden">
               <p class="text-sm sm:text-base text-white/70 text-center leading-snug">
                 {{ image.description }}
               </p>
             </div>
-            <!-- Imagen que se ajusta sin salirse del carrusel -->
-            <div class="relative w-full aspect-video flex items-center justify-center p-2 rounded-xl border border-neutral-800 bg-neutral-950/60">
+            <div
+              class="relative w-full aspect-video flex items-center justify-center p-2 rounded-xl border border-neutral-800">
               <picture class="relative block w-full h-full flex items-center justify-center">
                 <source [srcset]="image.src.replace('.png', '.webp')" type="image/webp" />
                 <img
@@ -47,7 +45,6 @@
       </div>
     </div>
 
-    <!-- Botón siguiente -->
     <button
       (click)="goToNext()"
       class="flex absolute right-0 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-neutral-800/80 text-white/80 hover:bg-neutral-700/90 hover:text-white transition-all duration-300 backdrop-blur-sm border border-neutral-700/50 translate-x-1/2"
@@ -57,7 +54,6 @@
     </button>
   </div>
 
-  <!-- Indicadores de posición -->
   <div class="flex justify-center items-center gap-2 mt-4">
     @for (_ of images(); track $index) {
       <button

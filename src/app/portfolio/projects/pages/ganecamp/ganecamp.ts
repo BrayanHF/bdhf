@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 import { StackCategory } from '../../../../shared/interfaces/stack-category.interface';
 import { GitHubLink } from '../../../../shared/interfaces/github-link.interface';
 import { ganecampImages } from '../../../utils/projects/ganecamp-images';
-import { GANECAMP_FIREBASE, GANECAMP_KOTLIN } from '../../../utils/projects/ganecamp-techs';
+import {
+  GANECAMP_ANDROID,
+  GANECAMP_FIREBASE_AUTH,
+  GANECAMP_FIRESTORE,
+  GANECAMP_KOTLIN,
+  GANECAMP_RFID,
+} from '../../../utils/projects/ganecamp-techs';
 import { BackButton } from '../../../../shared/components/buttons/back-button/back-button';
 import { ProjectAbout } from '../../../../shared/components/project/project-about/project-about';
 import { ProjectCarousel } from '../../../../shared/components/project/project-carousel/project-carousel';
@@ -42,11 +48,11 @@ export default class Ganecamp {
   readonly techCategories: StackCategory[] = [
     {
       title: 'Mobile',
-      techs: [GANECAMP_KOTLIN],
+      techs: [GANECAMP_ANDROID, GANECAMP_KOTLIN],
     },
     {
-      title: 'Infraestructura',
-      techs: [GANECAMP_FIREBASE],
+      title: 'Complementos',
+      techs: [GANECAMP_FIRESTORE, GANECAMP_FIREBASE_AUTH, GANECAMP_RFID],
     },
   ];
 

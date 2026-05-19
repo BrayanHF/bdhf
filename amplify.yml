@@ -14,3 +14,8 @@ frontend:
   cache:
     paths:
       - '.npm/**/*'
+
+customRules:
+  - source: </^[^.]+$|\.(?!(css|js|svg|webp|ico|json|pdf)$)([^.]+$)/>
+    target: /index.html
+    status: '200'

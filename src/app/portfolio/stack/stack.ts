@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FloatingShapes } from '../../shared/components/decoration/floating-shapes/floating-shapes';
 import { GradientOrbs } from '../../shared/components/decoration/gradient-orb/gradient-orbs';
 import { StackCategory } from '../../shared/interfaces/stack-category.interface';
@@ -32,6 +32,7 @@ import { TechCard } from '../../shared/components/cards/tech-card/tech-card';
   selector: 'stack-section',
   imports: [FloatingShapes, GradientOrbs, TechCard],
   templateUrl: './stack.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Stack {
   readonly categories: StackCategory[] = [

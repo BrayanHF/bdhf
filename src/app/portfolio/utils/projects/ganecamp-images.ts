@@ -2,85 +2,85 @@ import { CarouselImage } from '../../../shared/interfaces/carousel-image.interfa
 
 export const ganecampImages: CarouselImage[] = [
   {
-    src: 'assets/images/projects/ganecamp/login.png',
+    src: 'assets/images/projects/ganecamp/login.webp',
     alt: 'Inicio de sesión',
     description: 'Pantalla de inicio de sesión para acceder a la APP',
   },
   {
-    src: 'assets/images/projects/ganecamp/signup.png',
+    src: 'assets/images/projects/ganecamp/signup.webp',
     alt: 'Registrarse',
     description: 'Pantalla de registro para crear una nueva cuenta',
   },
   {
-    src: 'assets/images/projects/ganecamp/scan.png',
+    src: 'assets/images/projects/ganecamp/scan.webp',
     alt: 'Pantalla de scan',
     description:
       'Escanear o ingresar manualmente el tag RFID. Si el animal ya existe en el sistema, se navega automáticamente a sus detalles, de lo contrario, se permite registrarlo.',
   },
   {
-    src: 'assets/images/projects/ganecamp/animals.png',
+    src: 'assets/images/projects/ganecamp/animals.webp',
     alt: 'Lista de todos los animales',
     description: 'Listado general de todos los animales registrados en el sistema',
   },
   {
-    src: 'assets/images/projects/ganecamp/animaldetail.png',
+    src: 'assets/images/projects/ganecamp/animaldetail.webp',
     alt: 'Detalles del animal',
     description: 'Vista con la información detallada de un animal',
   },
   {
-    src: 'assets/images/projects/ganecamp/themes.png',
+    src: 'assets/images/projects/ganecamp/themes.webp',
     alt: 'Tema sin conexión',
     description: 'Tema en color blanco que se muestra cuando no hay conexión',
   },
   {
-    src: 'assets/images/projects/ganecamp/addeditanimal.png',
+    src: 'assets/images/projects/ganecamp/addeditanimal.webp',
     alt: 'Editar animal',
     description: 'Formulario para agregar un animal y editar los datos de un animal registrado',
   },
   {
-    src: 'assets/images/projects/ganecamp/validations.png',
+    src: 'assets/images/projects/ganecamp/validations.webp',
     alt: 'Validaciones',
     description: 'Mensajes de validación para acciones sensibles como editar o eliminar',
   },
   {
-    src: 'assets/images/projects/ganecamp/addvaccine.png',
+    src: 'assets/images/projects/ganecamp/addvaccine.webp',
     alt: 'Agregar vacuna',
     description: 'Formulario para registrar o aplicar una vacuna ya registrada a un animal',
   },
   {
-    src: 'assets/images/projects/ganecamp/addevent.png',
+    src: 'assets/images/projects/ganecamp/addevent.webp',
     alt: 'Agregar evento',
     description:
       'Pantalla para registrar un evento relacionado con un animal o asignar un tipo de evento ya registrado',
   },
   {
-    src: 'assets/images/projects/ganecamp/addweight.png',
+    src: 'assets/images/projects/ganecamp/addweight.webp',
     alt: 'Agregar peso',
     description: 'Pantalla para agregar un nuevo peso en el historial del animal',
   },
   {
-    src: 'assets/images/projects/ganecamp/lots.png',
+    src: 'assets/images/projects/ganecamp/lots.webp',
     alt: 'Listado de lotes',
     description: 'Listado general de los lotes disponibles en el sistema',
   },
   {
-    src: 'assets/images/projects/ganecamp/lotdetail.png',
+    src: 'assets/images/projects/ganecamp/lotdetail.webp',
     alt: 'Detalle de un lote',
     description: 'Vista con la información detallada de un lote registrado',
   },
   {
-    src: 'assets/images/projects/ganecamp/addeditlot.png',
+    src: 'assets/images/projects/ganecamp/addeditlot.webp',
     alt: 'Editar lote',
     description: 'Formulario para agregar un lote y editar los datos de un lote ya guardado',
   },
   {
-    src: 'assets/images/projects/ganecamp/rfid.png',
+    src: 'assets/images/projects/ganecamp/rfid.webp',
     alt: 'Lector RFID',
     description: 'Dispositivo lector RFID utilizado en el proyecto',
   },
 
   {
-    src: 'assets/images/projects/ganecamp/tagrfid.png',
+    src: 'assets/images/projects/ganecamp/tagrfid.webp',
     alt: 'Tags RFID',
     description: 'Tags RFID utilizados para pruebas',
   },

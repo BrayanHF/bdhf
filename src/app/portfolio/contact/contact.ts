@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -16,6 +16,7 @@ import { EmailService } from '../../shared/services/email.service';
   selector: 'contact-section',
   imports: [ReactiveFormsModule, FloatingShapes, GradientOrbs, LucideAngularModule],
   templateUrl: './contact.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Contact {
   private fb = inject(FormBuilder);

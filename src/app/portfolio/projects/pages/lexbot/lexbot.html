@@ -1,5 +1,4 @@
 <div class="bg-black flex flex-col">
-
   <back-button />
 
   <project-title
@@ -7,17 +6,28 @@
     subtitle="Asistente legal con inteligencia artificial para simplificar trámites jurídicos en Colombia"
   />
 
+  @defer (on viewport) {
   <project-carousel [images]="images" />
-
+  } @placeholder {
+  <div class="h-[500px] animate-pulse rounded-xl"></div>
+  } @defer (on viewport) {
   <project-structure-img
     label="Flujo de comunicación entre componentes de LexBot"
-    imgNoFormat="assets/images/projects/lexbot/LexBotApp"
+    img="assets/images/projects/lexbot/LexBotApp.webp"
   />
-
+  } @placeholder {
+  <div class="h-[500px] animate-pulse rounded-xl"></div>
+  } @defer (on viewport) {
   <project-about [about]="aboutProject" />
-
+  } @placeholder {
+  <div class="h-[500px] animate-pulse rounded-xl"></div>
+  } @defer (on viewport) {
   <project-techs [techCategories]="techCategories" />
-
+  } @placeholder {
+  <div class="h-[500px] animate-pulse rounded-xl"></div>
+  } @defer (on viewport) {
   <project-github [hrefs]="githubLinks" />
-
+  } @placeholder {
+  <div class="h-[500px] animate-pulse rounded-xl"></div>
+  }
 </div>

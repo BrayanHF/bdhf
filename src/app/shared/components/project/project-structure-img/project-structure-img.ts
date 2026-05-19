@@ -8,5 +8,5 @@ import { FloatingShapes } from '../../decoration/floating-shapes/floating-shapes
 })
 export class ProjectStructureImg {
   readonly label = input.required<string>();
-  readonly imgNoFormat = input.required<string>();
+  readonly img = input.required<string>();
 }

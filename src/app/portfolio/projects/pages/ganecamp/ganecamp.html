@@ -1,4 +1,4 @@
-<div class="bg-black flex flex-col">
+<main class="bg-black flex flex-col">
   <back-button />
 
   <project-title
@@ -6,21 +6,14 @@
     subtitle="Gestión ganadera digital mediante tecnología RFID y funcionamiento offline"
   />
 
-  @defer (on viewport) {
-  <project-carousel [images]="images" />
-  }@placeholder {
-  <div class="h-[500px] animate-pulse rounded-xl"></div>
-  } @defer (on viewport) {
+  <defer-section>
+    <project-carousel [images]="images" />
+  </defer-section>
+
   <project-about [about]="aboutProject" />
-  }@placeholder {
-  <div class="h-[500px] animate-pulse rounded-xl"></div>
-  } @defer (on viewport) {
+
   <project-techs [techCategories]="techCategories" />
-  }@placeholder {
-  <div class="h-[500px] animate-pulse rounded-xl"></div>
-  } @defer (on viewport) {
+
   <project-github [hrefs]="githubLinks" />
-  }@placeholder {
-  <div class="h-[500px] animate-pulse rounded-xl"></div>
-  }
-</div>
+
+</main>

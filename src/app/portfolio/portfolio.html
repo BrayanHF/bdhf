@@ -1,51 +1,27 @@
-<div class="bg-black">
-  <section id="hero">
-    <hero-section />
-  </section>
+<main>
+  <hero-section />
 
   <section id="experience">
-    @defer (on viewport) {
     <experience-section />
-    } @placeholder {
-    <div class="h-[500px] animate-pulse rounded-xl bg-neutral-900"></div>
-    }
   </section>
 
   <section id="projects">
-    @defer (on viewport) {
     <projects-section />
-    } @placeholder {
-    <div class="h-[500px] animate-pulse rounded-xl bg-neutral-900"></div>
-    }
   </section>
 
-  <section id="stack">
-    @defer (on viewport) {
-    <stack-section />
-    } @placeholder {
-    <div class="h-[500px] animate-pulse rounded-xl bg-neutral-900"></div>
-    }
-  </section>
+  <stack-section id="stack" />
 
   <section id="about">
-    @defer (on viewport) {
     <about-section />
-    } @placeholder {
-    <div class="h-[500px] animate-pulse rounded-xl bg-neutral-900"></div>
-    }
   </section>
 
   <section id="contact">
-    @defer (on viewport) {
     <contact-section />
-    } @placeholder {
-    <div class="h-[500px] animate-pulse rounded-xl bg-neutral-900"></div>
-    }
   </section>
 
-  <footer class="py-8 text-center text-white/30 text-sm">
-    © 2026 Brayan Hernandez. Todos los derechos reservados.
-  </footer>
-
   <nav-button />
-</div>
+</main>
+
+<footer class="py-8 text-center text-white/60 text-sm">
+  © 2026 Brayan Hernandez. Todos los derechos reservados.
+</footer>

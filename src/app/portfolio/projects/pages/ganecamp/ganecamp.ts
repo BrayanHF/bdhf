@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { StackCategory } from '../../../../shared/interfaces/stack-category.interface';
 import { GitHubLink } from '../../../../shared/interfaces/github-link.interface';
 import { ganecampImages } from '../../../utils/projects/ganecamp-images';
@@ -15,13 +16,32 @@ import { ProjectCarousel } from '../../../../shared/components/project/project-c
 import { ProjectGithub } from '../../../../shared/components/project/project-github/project-github';
 import { ProjectTechs } from '../../../../shared/components/project/project-techs/project-techs';
 import { ProjectTitle } from '../../../../shared/components/project/project-title/project-title';
+import { DeferSection } from '../../../../shared/components/defer/defer-content/defer-section';
 
 @Component({
   selector: 'app-ganecamp',
-  imports: [BackButton, ProjectAbout, ProjectCarousel, ProjectGithub, ProjectTechs, ProjectTitle],
+  imports: [
+    BackButton,
+    ProjectAbout,
+    ProjectCarousel,
+    ProjectGithub,
+    ProjectTechs,
+    ProjectTitle,
+    DeferSection,
+  ],
   templateUrl: './ganecamp.html',
 })
 export default class Ganecamp {
+  private meta = inject(Meta);
+
+  constructor() {
+    this.meta.updateTag({
+      name: 'description',
+      content: `Aplicación móvil de gestión ganadera con tecnología RFID para fincas en Colombia.
+      Controla el peso, las vacunas y la identificación del ganado sin necesidad de internet.`,
+    });
+  }
+
   readonly images = ganecampImages;
 
   readonly aboutProject = [

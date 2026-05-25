@@ -16,6 +16,6 @@ frontend:
       - '.npm/**/*'
 
 customRules:
-  - source: </^[^.]+$|\.(?!(css|js|svg|webp|ico|json|pdf)$)([^.]+$)/>
+  - source: </^[^.]+$|\.(?!(css|js|svg|webp|ico|json|pdf|txt|xml)$)([^.]+$)/>
     target: /index.html
     status: '200'

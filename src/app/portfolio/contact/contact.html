@@ -12,7 +12,7 @@
           Contacto
         </span>
       </h2>
-      <p class="mt-4 text-sm sm:text-base text-white/35 max-w-xl mx-auto leading-relaxed">
+      <p class="mt-4 text-sm sm:text-base text-white/60 max-w-xl mx-auto leading-relaxed">
         Si quieres colaborar en un proyecto, tienes alguna pregunta o simplemente quieres saludar, no dudes en
         escribirme.
       </p>
@@ -25,7 +25,7 @@
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-6">Medios de contacto</h3>
           <div class="space-y-4">
             <a href="mailto:brayanhernandezfurnieles@gmail.com"
-               class="group flex items-center gap-3 text-white/60 hover:text-white transition-all  rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/10">
+               class="focus:outline-none focus:ring-2 focus:ring-white/40 group flex items-center gap-3 text-white/60 hover:text-white transition-all  rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/10">
               <span
                 class="flex items-center justify-center w-10 h-10">
                 <lucide-icon [img]="MailIcon" />
@@ -35,7 +35,7 @@
 
             <a href="https://wa.me/573001719317?text=Hola%20Brayan,%20vi%20tu%20portfolio" target="_blank"
                rel="noopener noreferrer"
-               class="group flex items-center gap-3 text-white/60 hover:text-white transition-all rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/10">
+               class="focus:outline-none focus:ring-2 focus:ring-white/40 group flex items-center gap-3 text-white/60 hover:text-white transition-all rounded-lg bg-white/5 border border-white/10 group-hover:border-white/20 hover:bg-white/10">
               <span
                 class="flex items-center justify-center w-10 h-10 ">
                 <lucide-icon [img]="PhoneIcon" />
@@ -46,10 +46,10 @@
         </div>
 
         <div>
-          <h4 class="text-xs uppercase tracking-widest text-white/40 font-mono mb-4">Redes</h4>
+          <h4 class="text-xs uppercase tracking-widest text-white/60 font-mono mb-4">Redes</h4>
           <div class="flex items-center gap-3">
             <a href="https://github.com/BrayanHF" target="_blank" rel="noopener noreferrer"
-               class="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+               class="focus:outline-none focus:ring-2 focus:ring-white/40 group flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
 
               <div class="h-8 w-8">
                 <img src="assets/icons/github.svg" alt="GitHub" />
@@ -58,7 +58,7 @@
             </a>
 
             <a href="https://www.linkedin.com/in/brayanhf" target="_blank" rel="noopener noreferrer"
-               class="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+               class="focus:outline-none focus:ring-2 focus:ring-white/40 sgroup flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
               <div class="h-8 w-8">
                 <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
               </div>
@@ -90,6 +90,7 @@
                 type="text"
                 formControlName="name"
                 placeholder="Nombre"
+                aria-label="Nombre"
                 class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors"
               />
             </div>
@@ -107,6 +108,7 @@
                 type="email"
                 formControlName="email"
                 placeholder="Correo electrónico"
+                aria-label="Correo electrónico"
                 class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors"
               />
             </div>
@@ -125,13 +127,14 @@
               formControlName="message"
               rows="4"
               placeholder="Escribe tu mensaje..."
+              aria-label="Mensaje"
               class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-white/30 transition-colors resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="group my-8 relative inline-flex items-center gap-2 px-8 py-3 rounded-full font-medium text-sm tracking-wider uppercase overflow-hidden transition-all duration-300"
+            class="group focus:ring-2 my-8 relative inline-flex items-center gap-2 px-8 py-3 rounded-full font-medium text-sm tracking-wider uppercase overflow-hidden transition-all duration-300"
           >
             <span
               class="absolute inset-0 bg-gradient-to-r from-white to-neutral-300 opacity-90 group-hover:opacity-100 transition-opacity"></span>

@@ -6,17 +6,23 @@
         class="menu-item backdrop-blur"
         [class.active]="activeSection() === item.path"
         (click)="navigateTo(item.path)"
+        (keydown.enter)="navigateTo(item.path)"
+        (keydown.space)="navigateTo(item.path); $event.preventDefault()"
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="item.label"
       >
-        <lucide-icon [img]="item.img" />
+        <lucide-icon [img]="item.img" aria-hidden="true" />
         @if (item.label != '') {
-          <label class="text-neutral-50">{{ item.label }}</label>
+          <span class="text-neutral-50">{{ item.label }}</span>
         }
       </div>
     }
 
     <button
-      class="menu-button z-10 w-12 h-12 rounded-full bg-gradient-to-br from-white/20 via-neutral-300/20 to-neutral-500/20 backdrop-blur flex items-center justify-center"
+      class="menu-button focus:outline-none focus:ring-2 focus:ring-white/40 focus:rounded-xl z-10 w-12 h-12 rounded-full bg-gradient-to-br from-white/20 via-neutral-300/20 to-neutral-500/20 backdrop-blur flex items-center justify-center"
       (click)="toggleMenu()"
+      aria-label="Menu"
     >
       <lucide-icon [img]="currentIcon()" class="menu-icon" />
     </button>

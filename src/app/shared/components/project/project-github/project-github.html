@@ -14,7 +14,7 @@
           class="inline-flex m-4 items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-neutral-200 transition-colors duration-300"
         >
           <div class="h-8 w-8">
-            <img [src]="href.localIcon" alt="LinkedIn" />
+            <img [src]="href.localIcon" [alt]="href.label" />
           </div>
           {{ href.label }}
         </a>

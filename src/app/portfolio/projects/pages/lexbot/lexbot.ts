@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ProjectCarousel } from '../../../../shared/components/project/project-carousel/project-carousel';
 import { lexbotImages } from '../../../utils/projects/lexbot-images';
 import { BackButton } from '../../../../shared/components/buttons/back-button/back-button';
@@ -23,6 +24,7 @@ import { ProjectTitle } from '../../../../shared/components/project/project-titl
 import { ProjectStructureImg } from '../../../../shared/components/project/project-structure-img/project-structure-img';
 import { ProjectTechs } from '../../../../shared/components/project/project-techs/project-techs';
 import { ProjectAbout } from '../../../../shared/components/project/project-about/project-about';
+import { DeferSection } from '../../../../shared/components/defer/defer-content/defer-section';
 
 @Component({
   selector: 'projects-lexbot',
@@ -34,10 +36,21 @@ import { ProjectAbout } from '../../../../shared/components/project/project-abou
     ProjectStructureImg,
     ProjectTechs,
     ProjectAbout,
+    DeferSection,
   ],
   templateUrl: './lexbot.html',
 })
 export default class Lexbot {
+  private meta = inject(Meta);
+
+  constructor() {
+    this.meta.updateTag({
+      name: 'description',
+      content: `Asistente legal con inteligencia artificial que orienta a ciudadanos colombianos en trámites jurídicos.
+      Acceso gratuito a información legal basada en normativa vigente.`,
+    });
+  }
+
   readonly images = lexbotImages;
 
   readonly aboutProject = [

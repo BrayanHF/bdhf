@@ -5,9 +5,9 @@ export const experience_list: ExperienceEntry[] = [
     company: 'Registraduría Nacional del Estado Civil',
     role: 'Digitador',
     periodStart: 'Febrero 2026',
-    periodEnd: 'Marzo 2026',
+    periodEnd: 'Julio 2026',
     description: [
-      'Digitación y captura de resultados de los formularios E-14 de claveros en las votaciones de congreso y cámara 2026.',
+      'Digitalización y captura de resultados de los formularios E-14 de claveros en las votaciones de congreso, cámara y presidencia primera y segunda vuelta 2026.',
       'Registro y trámite de reclamaciones presentadas por testigos y apoderados electorales.',
       'Generación de resoluciones y documentos legales para resolver impugnaciones.',
       'Consolidación de datos y validación de los formularios E-24 y E-26.',

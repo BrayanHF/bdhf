@@ -23,6 +23,12 @@
       </span>
     </div>
 
+    @if (experience().summary) {
+      <p class="text-sm sm:text-base text-white/80 leading-relaxed">
+        {{ experience().summary }}
+      </p>
+    }
+
     <ul class="space-y-2.5 pt-1">
       @for (item of experience().description; track $index) {
         <li class="flex items-start gap-3 text-sm sm:text-base text-white/80 leading-relaxed">

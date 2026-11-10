@@ -3,5 +3,6 @@ export interface ExperienceEntry {
   role: string;
   periodStart: string;
   periodEnd: string;
+  summary?: string;
   description: string[];
 }

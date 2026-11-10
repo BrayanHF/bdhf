@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bdhf",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist/portfolio/browser",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "b-hernandez.com", "custom_domain": true },
+    { "pattern": "www.b-hernandez.com", "custom_domain": true }
+  ]
+}
